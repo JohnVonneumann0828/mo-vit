@@ -94,7 +94,7 @@ class ViT(nn.Module):
         seq_len = gh * gw
 
         # Patch embedding
-        self.patch_embedding = nn.Conv2d(in_channels=in_channels, dim, kernel_size=(fh, fw), stride=(fh, fw))
+        self.patch_embedding = nn.Conv2d(in_channels, dim, kernel_size=(fh, fw), stride=(fh, fw))
 
         # Class token
         if classifier == 'token':
