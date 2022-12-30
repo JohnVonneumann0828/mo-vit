@@ -51,7 +51,7 @@ class ViT(nn.Module):
         load_repr_layer: bool = False,
         classifier: str = 'token',
         positional_embedding: str = '1d',
-        in_channels: int = 1, 
+        in_channels: int = 3, 
         image_size: Optional[int] = None,
         num_classes: Optional[int] = None,
     ):
@@ -85,8 +85,6 @@ class ViT(nn.Module):
                 num_classes = PRETRAINED_MODELS[name]['num_classes']
         self.image_size = image_size                
         num_classes=2
-        in_channels=1
-        print(in_channels)
         # Image and patch sizes
         h, w = as_tuple(image_size)  # image sizes
         fh, fw = as_tuple(patches)  # patch sizes
