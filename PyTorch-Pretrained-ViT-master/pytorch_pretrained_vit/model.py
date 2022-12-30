@@ -85,6 +85,8 @@ class ViT(nn.Module):
                 num_classes = PRETRAINED_MODELS[name]['num_classes']
         self.image_size = image_size                
         num_classes=2
+        in_channels=1
+        print(in_channels)
         # Image and patch sizes
         h, w = as_tuple(image_size)  # image sizes
         fh, fw = as_tuple(patches)  # patch sizes
@@ -92,7 +94,7 @@ class ViT(nn.Module):
         seq_len = gh * gw
 
         # Patch embedding
-        self.patch_embedding = nn.Conv2d(in_channels, dim, kernel_size=(fh, fw), stride=(fh, fw))
+        self.patch_embedding = nn.Conv2d(in_channels=in_channels, dim, kernel_size=(fh, fw), stride=(fh, fw))
 
         # Class token
         if classifier == 'token':
